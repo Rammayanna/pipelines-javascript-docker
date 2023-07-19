@@ -37,3 +37,9 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'Free Trial(1)(a3ece1b9-0bed-4f79-8a31-55b24674e92c)'
+    KeyVaultName: 'dockerpipelinekey'
+    SecretsFilter: 'yes'
+    RunAsPreJob: true
